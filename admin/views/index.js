@@ -26,4 +26,8 @@ authRouter.get('/library', (req, res) => {
     res.sendFile('library.html', { root: pagesDirectory});
 });
 
+authRouter.get('/member', (req, res) => {
+    res.sendFile('member.html', { root: pagesDirectory});
+});
+
 module.exports = router;

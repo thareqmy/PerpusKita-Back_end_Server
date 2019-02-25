@@ -25,7 +25,10 @@
                 </li>
                 <li class="nav-item"> 
                     <a class="nav-link" data-value="library" href="/admin/library">Library</a>
-                </li>   
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-value="member" href="/admin/member">member</a>
+                </li>
                 <li class="nav-item"> 
                     <a class="nav-link" data-value="logout" href="/admin/logout">Logout</a>         
                 </li>  
@@ -39,6 +42,9 @@
             </li>
             <li class="nav-item">
                 <a id="library-tab" class="nav-link content-tab" data-toggle="tab" href="#library">Library</a>
+            </li>
+            <li class="nav-item">
+                <a id="member-tab" class="nav-link content-tab" data-toggle="tab" href="#member">Member</a>
             </li>
         </ul>
         <div class="tab-content">
@@ -72,6 +78,21 @@
                         </tr>
                     </thead>
                     <tbody id="body-table-library">
+
+                    </tbody>
+                </table>
+            </div>
+            <div id="member" class="container tab-pane fade"><br>
+                <table class="table table-striped table-bordered">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Email</th>
+                        <th>Password</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody id="body-table-member">
 
                     </tbody>
                 </table>

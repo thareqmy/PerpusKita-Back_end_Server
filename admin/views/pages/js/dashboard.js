@@ -124,6 +124,62 @@ $(document).ready(() => {
             }
         }
     });
+    $.ajax({
+        url: "/api/admin/member/list",
+        headers: {
+            "Authorization": getCookie("jwtToken")
+        },
+        dataType: "json",
+        type: "GET",
+        success: (result) => {
+            if (result.success) {
+                $(result.data).each((_, data) => {
+                    let row = $("<tr></tr>");
+                    $("#body-table-member").append(row);
+
+                    let id = document.createElement("td");
+                    id.innerHTML = data.id;
+                    let name = document.createElement("td");
+                    email.innerHTML = data.email;
+                    let location = document.createElement("td");
+                    password.innerHTML = data.password;
+
+                    let removeButton = document.createElement("button");
+                    removeButton.classList.add("btn","btn-primary");
+                    removeButton.val = data.id;
+                    removeButton.innerHTML = "REMOVE";
+                    removeButton.onclick = (e) => {
+                        e.preventDefault();
+
+                        $.ajax({
+                            url: "/api/admin/member/delete",
+                            method: "POST",
+                            data: {
+                                id: data.id
+                            },
+                            headers: {
+                                "Authorization": getCookie("jwtToken")
+                            },
+                            dataType: "json",
+                            success: (result) => {
+                                console.log(result);
+                                if (result.success) {
+                                    var message = `${data.email} is successfully deleted`;
+                                    alert(message);
+                                    location.reload();
+                                } else {
+                                    var message = `Failed to delete ${data.email}`;
+                                    alert(message);
+                                }
+                            }
+                        });
+                    }
+
+                    row.append(id, email, password, removeButton);
+                });
+            }
+        }
+    });
 });
 
 $('a#library-tab').on('click', () => {
@@ -134,6 +190,8 @@ $('a#library-tab').on('click', () => {
     $('#library').removeClass("fade");
     $('#library').addClass("active");
 });
+
+
 
 $('#book-tab').on('click', () => {
     $('a#library-tab').removeClass("active");

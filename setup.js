@@ -4,6 +4,7 @@ const dotenv = require('dotenv');
 const User = require('./models/user');
 const Library = require('./models/library');
 const Book = require('./models/book');
+const Member = require('./models/member');
 
 const vars = dotenv.config();
 if (vars.error) {
@@ -33,6 +34,19 @@ db.sync({ force: true }).then(() => {
             console.log(`Token : ${token}`);
         }
     });
+    Member.createMember({
+        email: "thareqmyha@gmail.com",
+        location: "sasa"
+    }, (err, data) => {
+        if (err) {
+            console.log(`Error : ${err}`);
+        } else {
+            console.log(`Token : ${data.token}`);
+        }
+
+
+    });
+
     Library.createLibrary({
         name: "Perpus Pusat ITB",
         location: "di itb"
