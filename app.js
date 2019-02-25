@@ -14,6 +14,7 @@ const admin = require('./admin/views/index');
 
 // port number
 const PORT =process.env.PORT || 3000;
+var https = require('https');
 
 // parse incoming request
 app.use(bodyParser.json());
@@ -35,7 +36,7 @@ api.use(tokenAuth);
 api.use('/admin', adminAPI);
 api.use('/android', androidAPI);
 
-app.listen(PORT, "https://powerful-garden-88903.herokuapp.com/ ", () => {
+app.listen(PORT, https.powerful-garden-88903.herokuapp.com, () => {
     console.log(`listening to port ${PORT}`);
 });
 
