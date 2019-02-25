@@ -1,7 +1,7 @@
 const express = require( 'express' )
     , https = require("https")
     , fs = require( 'fs' );
-const app = express.createServer();
+const app = express;
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 
