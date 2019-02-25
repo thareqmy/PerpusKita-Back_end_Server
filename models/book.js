@@ -16,6 +16,9 @@ const Book = db.define('book', {
     author: {type: Sequelize.STRING, allowNull: false}
 });
 
+
+
+
 Library.hasMany(Book, { onDelete: 'restrict', onUpdate: 'cascade'});
 
 function createQRCode(bookName, libraryId) {

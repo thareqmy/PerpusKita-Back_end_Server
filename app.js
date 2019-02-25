@@ -35,7 +35,7 @@ api.use(tokenAuth);
 api.use('/admin', adminAPI);
 api.use('/android', androidAPI);
 
-app.listen(PORT, "localhost", () => {
+app.listen(PORT, "https://powerful-garden-88903.herokuapp.com/", () => {
     console.log(`listening to port ${PORT}`);
 });
 
