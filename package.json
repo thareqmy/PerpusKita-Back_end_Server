@@ -1,7 +1,7 @@
 {
   "name": "perpuskita",
   "version": "1.0.0",
-  "description": "Backend for QR code scanner",
+  "description": "Backend for perpusKita",
   "main": "app.js",
   "scripts": {
     "dev": "nodemon app.js",
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/adhipradhana/qrcode.git"
+    "url": "https://github.com/thareqmy/PerpusKita-Back_end_Server"
   },
-  "author": "adhipradhana",
+  "author": "thareq",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/adhipradhana/qrcode/issues"
+    "url": "https://github.com/thareqmy/PerpusKita-Back_end_Server/issues"
   },
-  "homepage": "https://github.com/adhipradhana/qrcode#readme",
+  "homepage": "https://github.com/thareqmy/PerpusKita-Back_end_Server#readme",
   "dependencies": {
     "bcrypt": "^3.0.3",
     "cookie-parser": "^1.4.3",
