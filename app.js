@@ -16,7 +16,6 @@ const admin = require('./admin/views/index');
 
 // port number
 const PORT =process.env.PORT || 3000;
-var https = require('https');
 
 // parse incoming request
 app.use(bodyParser.json());
