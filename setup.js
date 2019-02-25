@@ -42,6 +42,8 @@ db.sync({ force: true }).then(() => {
         } else {
             console.log(`Token : ${data.token}`);
         }
+
+
     });
     Book.createBook({
         name: "Buku Golok",

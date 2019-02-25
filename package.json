@@ -1,5 +1,5 @@
 {
-  "name": "qrcode-preevent",
+  "name": "perpuskita",
   "version": "1.0.0",
   "description": "Backend for QR code scanner",
   "main": "app.js",
@@ -30,7 +30,7 @@
     "mysql2": "^1.6.4",
     "qr-image": "^3.2.0",
     "sequelize": "^4.42.0",
-    "sqlite3": "^4.0.6",
-    "zip-a-folder": "0.0.7"
+    "zip-a-folder": "0.0.7",
+    "pg": "6.4.2"
   }
 }

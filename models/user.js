@@ -68,6 +68,7 @@ User.login = (data, callback) => {
         bcrypt.compare(data.password, user.password, (err, res) => {
             if (err) {
                 return callback(err);
+
             }
 
             if (res) {
