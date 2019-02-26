@@ -4,13 +4,15 @@ const db = require('./db');
 const Member = db.define('member', {
     id: { type: Sequelize.INTEGER, primaryKey: true, autoIncrement: true },
     email: { type: Sequelize.STRING, allowNull: false },
-    password: { type: Sequelize.STRING, allowNull: false }
+    password: { type: Sequelize.STRING, allowNull: false },
+    attended: { type: Sequelize.STRING, allowNull: false }
 });
 
 Member.createMember = (data, callback) => {
     Member.create({
         email: data.email,
-        password: data.password
+        password: data.password,
+        attended: data.attended
     }).then((member) => {
         return callback(null, member);
     }).catch((err) => {

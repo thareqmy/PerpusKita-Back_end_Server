@@ -1,7 +1,6 @@
-  const router = require('express').Router();
+const router = require('express').Router();
 
 const Book = require('../models/book');
-const Library = require('../models/library');
 
 router.get('/', (req, res) => {
     res.json({
@@ -16,71 +15,105 @@ router.get('/book', (req, res) => {
     if (token) {
         Book.findOne({ where: {token: token} })
         .then((book) => {
-            Library.findOne({ where: {id: book.libraryId}})
-            .then((library) => {
-                res.json({
-                    success: true,
-                    data: {
-                        name: book.name,
-                        library: library.name
-                    }
-                });
-            }).catch((err) => {
-                res.json({
-                    success: false,
-                    message: "Event not found"
-                }); 
+            res.json({
+                success: true,
+                data: {
+                    id: book.id,
+                    name: book.name,
+                    libraryId: book.libraryId,
+                    author: book.author
+                }
             });
         }).catch((err) => {
             res.json({
                 success: false,
-                message: "Guest not found"
+                message: "Book not found"
             }); 
         });
     } else {
         res.json({
             success: false,
-            message: "Guest token not given"
+            message: "Book token not given"
         });
     }
 });
 
-router.post('/book', (req, res) => {
+router.post('/borrowbook', (req, res) => {
     let token = req.body.token;
 
     if (token) {
         Book.findOne({ where: {token: token} })
         .then((book) => {
-            if (guest.attended) {
+            if (book.attended) {
                 res.json({
                     success: false,
-                    message: `Error : ${book.name} already attended`
+                    message: `Error : ${book.name} already borrowed`
                 });
             } else {
                 book.update({
                     attended: true
-                }).then((guest) => {
+                }).then((book) => {
                     res.send({
                         success: true,
-                        message: `Welcome ${guest.name}`
+                        message: `${book.name} is borrowed successfully`
                     });
                 }).catch((err) => {
                     res.send({
                         success: false,
-                        message: "Failed to update guest"
+                        message: "Failed to update book"
                     });
                 });
             }
         }).catch((err) => {
             res.json({
                 success: false,
-                message: "Guest not found"
+                message: "Book not found"
             }); 
         });
     } else {
         res.json({
             success: false,
-            message: "Guest token not given"
+            message: "Book token not given"
+        });
+    }
+});
+
+router.post('/returnbook', (req, res) => {
+    let token = req.body.token;
+
+    if (token) {
+        Book.findOne({ where: {token: token} })
+            .then((book) => {
+                if (!book.attended) {
+                    res.json({
+                        success: false,
+                        message: `Error : ${book.name} already returned`
+                    });
+                } else {
+                    book.update({
+                        attended: true
+                    }).then((book) => {
+                        res.send({
+                            success: true,
+                            message: `${book.name} is returned successfully`
+                        });
+                    }).catch((err) => {
+                        res.send({
+                            success: false,
+                            message: "Failed to update book"
+                        });
+                    });
+                }
+            }).catch((err) => {
+            res.json({
+                success: false,
+                message: "Book not found"
+            });
+        });
+    } else {
+        res.json({
+            success: false,
+            message: "Book token not given"
         });
     }
 });

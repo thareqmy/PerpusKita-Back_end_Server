@@ -5,12 +5,14 @@ const Member = require('../../models/member');
 router.post('/create', (req, res) => {
     let body = {
         email: req.body.email,
-        password: req.body.password
+        password: req.body.password,
+        attended:req.body.attended
     }
 
     Member.create({
         email: body.email,
-        password: body.password
+        password: body.password,
+        attended:body.attended
     }).then((member) => {
         return res.json({
             success: true,
@@ -29,6 +31,7 @@ router.post('/update', (req, res) => {
     let body = {
         email: req.body.email,
         password: req.body.password,
+        attended:req.body.attended,
         id: req.body.id
     }
 
@@ -43,7 +46,8 @@ router.post('/update', (req, res) => {
 
             Member.update({
                 email: body.email,
-                password: body.password
+                password: body.password,
+                attended: body.attended
             }).then((member) => {
                 return res.json({
                     success: true,

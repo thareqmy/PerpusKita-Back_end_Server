@@ -27,7 +27,8 @@ db.sync({ force: true }).then(() => {
 
     Member.createMember({
         email: "thareqmyha@gmail.com",
-        password: "sasa"
+        password: "sasa",
+        attended: false
     }, (err, data) => {
         if (err) {
             console.log(`Error : ${err}`);

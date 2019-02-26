@@ -46,8 +46,8 @@ $(document).ready(() => {
 $('#borrow-form').on("submit", (e) => {
     e.preventDefault();
     let numDay = $('#borrow-day').val();
-    let bookId = parseInt($('#borrow-book-id option:selected').val());
-    let memberId = parseInt($('#borrow-member-id option:selected').val());
+    let bookId = parseInt($('#borrow-book-name option:selected').val());
+    let memberId = parseInt($('#borrow-member-email option:selected').val());
 
     if ((memberId !== -1) && (bookId != -1)) {
         let body = {
