@@ -42,7 +42,7 @@ router.post('/attendlibrary', (req, res) => {
                 }).catch((err) => {
                     res.send({
                         success: false,
-                        message: "Failed to update member
+                        message: `Failed to update member`
                     });
                 });
             }
