@@ -27,10 +27,10 @@
                 <a class="nav-link" data-value="library" href="/admin/library">Library</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active" data-value="member" href="/admin/member">member</a>
+                <a class="nav-link" data-value="member" href="/admin/member">Member</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" data-value="borrow" href="/admin/borrow">Borrow</a>
+                <a class="nav-link active" data-value="borrow" href="/admin/borrow">Borrow</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" data-value="logout" href="/admin/logout">Logout</a>
@@ -39,14 +39,22 @@
     </div>
 </nav>
 <div id="content-container">
-    <form id="member-form" method="POST">
+    <form id="borrow-form" method="POST">
         <div class="form-group">
-            <label for="member-email">Email</label>
-            <input type="text" class="form-control" id="member-email" required="true">
+            <label for="borrow-day">Day</label>
+            <input type="text" class="form-control" id="borrow-day" required="true">
         </div>
         <div class="form-group">
-            <label for="member-password">Password</label>
-            <input type="text" class="form-control" id="member-password" required="true">
+            <label for="borrow-member-email">Member</label>
+            <select class="custom-select" id="borrow-member-email">
+                <option value="-1" selected>Choose member...</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="borrow-book-name">Book</label>
+            <select class="custom-select" id="borrow-book-name">
+                <option value="-1" selected>Choose book...</option>
+            </select>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>

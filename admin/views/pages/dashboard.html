@@ -27,7 +27,10 @@
                     <a class="nav-link" data-value="library" href="/admin/library">Library</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-value="member" href="/admin/member">member</a>
+                    <a class="nav-link" data-value="member" href="/admin/member">Member</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-value="borrow" href="/admin/borrow">Borrow</a>
                 </li>
                 <li class="nav-item"> 
                     <a class="nav-link" data-value="logout" href="/admin/logout">Logout</a>         
@@ -45,6 +48,9 @@
             </li>
             <li class="nav-item">
                 <a id="member-tab" class="nav-link content-tab" data-toggle="tab" href="#member">Member</a>
+            </li>
+            <li class="nav-item">
+                <a id="borrow-tab" class="nav-link content-tab" data-toggle="tab" href="#borrow">Borrow</a>
             </li>
         </ul>
         <div class="tab-content">
@@ -97,6 +103,24 @@
                     </tbody>
                 </table>
             </div>
+            <div id="borrow" class="container tab-pane fade"><br>
+                <table class="table table-striped table-bordered">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Day</th>
+                        <th>Member ID</th>
+                        <th>Book ID</th>
+                        <th>Borrowed At</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody id="body-table-borrow">
+
+                    </tbody>
+                </table>
+            </div>
+
 
             <button id="download-button" type="button" class="btn btn-primary">DOWNLOAD BOOK</button>
 
