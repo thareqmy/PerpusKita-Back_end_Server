@@ -38,6 +38,30 @@ router.get('/book', (req, res) => {
     }
 });
 
+router.get('/bookall', (req, res) => {
+    let name = req.query.name;
+
+    if (name) {
+        Book.findAll({ where: {name:name} })
+            .then((books) => {
+                res.json({
+                    success: true,
+                    data: books
+                });
+            }).catch((err) => {
+            res.json({
+                success: false,
+                message: "Book not found"
+            });
+        });
+    } else {
+        res.json({
+            success: false,
+            message: "Book token not given"
+        });
+    }
+});
+
 router.post('/borrowbook', (req, res) => {
     let token = req.body.token;
 
