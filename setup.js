@@ -78,6 +78,9 @@ db.sync({ force: true }).then(() => {
     Borrow.createBorrow({
         bookId: 1,
         memberId: 1,
+        name: "Blumbayar",
+        author: "Yasya",
+        nameLibrary: "Perpus Pusat ITB",
         numDay: 3
     }, (err, data) => {
         if (err) {

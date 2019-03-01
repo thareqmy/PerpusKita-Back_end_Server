@@ -32,6 +32,9 @@ router.post('/borrow', (req, res) => {
                 Borrow.createBorrow({
                     bookId: req.body.bookId,
                     memberId: req.body.memberId,
+                    name: req.body.name,
+                    author: req.body.author,
+                    nameLibrary: req.body.nameLibrary,
                     numDay: req.body.numDay
                 }, (err, data) => {
                     if (err) {
