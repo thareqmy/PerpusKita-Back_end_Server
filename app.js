@@ -7,6 +7,7 @@ const cookieParser = require('cookie-parser');
 
 // import api endpoint
 const androidAPI = require('./android/router');
+const unityAPI = require('./unity/routes');
 const adminAPI = require('./admin/controllers/router'); 
 const api = require('express').Router();
 const tokenAuth = require('./middlewares/tokenAuth');
@@ -34,9 +35,10 @@ app.use('/api', api);
 app.use('/files', express.static(__dirname + '/files'));
 app.use('/static', express.static(__dirname + '/admin/views/pages'));
 
-api.use(tokenAuth);
+//api.use(tokenAuth);
 api.use('/admin', adminAPI);
 api.use('/android', androidAPI);
+api.use('/unity', unityAPI);
 
 app.listen(PORT, () => {
     console.log(`listening to port ${PORT}`);
