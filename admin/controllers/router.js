@@ -7,7 +7,7 @@ const borrowAPI = require('./borrowController');
 
 const adminAuth = require('../../middlewares/adminAuth');
 
-api.use(adminAuth);
+//api.use(adminAuth);
 api.use('/book', bookAPI);
 api.use('/library', libraryAPI);
 api.use('/member', memberAPI);
