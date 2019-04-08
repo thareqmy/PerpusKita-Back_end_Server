@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 
 // import api endpoint
+const arduinoAPI = require('./arduino/router');
 const unityAPI = require('./unity/routes');
 const androidAPI = require('./android/router');
 const adminAPI = require('./admin/controllers/router');
@@ -39,6 +40,7 @@ api.use(tokenAuth);
 api.use('/unity', unityAPI);
 api.use('/admin', adminAPI);
 api.use('/android', androidAPI);
+api.use('/arduino', arduinoAPI);
 
 app.listen(PORT, "localhost", () => {
     console.log(`listening to port ${PORT}`);
