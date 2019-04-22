@@ -39,10 +39,9 @@ router.get('/book', (req, res) => {
 });
 
 router.get('/bookall', (req, res) => {
-    let name = req.query.name;
 
     if (name) {
-        Book.findAll({ where: {name:name} })
+        Book.findAll()
             .then((books) => {
                 res.json({
                     success: true,
