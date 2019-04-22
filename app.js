@@ -42,7 +42,7 @@ api.use('/admin', adminAPI);
 api.use('/android', androidAPI);
 api.use('/arduino', arduinoAPI);
 
-app.listen(PORT, "localhost", () => {
+app.listen(PORT, "", () => {
     console.log(`listening to port ${PORT}`);
 });
 
