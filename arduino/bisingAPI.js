@@ -4,7 +4,7 @@ const Bising = require('../models/bising');
 
 
 router.post('/bising', (req, res) => {
-    Borrow.createBorrow({
+    Bising.createBising({
         sound: req.body.sound,
 
     }, (err, data) => {
@@ -18,7 +18,7 @@ router.post('/bising', (req, res) => {
     }).then((bising) => {
         res.send({
             success: true,
-            message: `${bising.id} is created`
+            message: `is created`
         });
     }).catch((err) => {
         res.send({

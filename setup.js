@@ -6,6 +6,7 @@ const Library = require('./models/library');
 const Book = require('./models/book');
 const Member = require('./models/member');
 const Borrow = require('./models/borrow');
+const Bising = require('./models/bising');
 
 const vars = dotenv.config();
 if (vars.error) {
@@ -25,10 +26,30 @@ db.sync({ force: true }).then(() => {
         }
     });
 
-    Member.createMember({
-        email: "thareqmyha@gmail.com",
-        password: "sasa",
-        attended: false
+    Bising.createBising( {
+        sound :  1008
+    }, (err, data) => {
+        if (err) {
+            console.log(`Error : ${err}`);
+        } else {
+            console.log(`Token : ${data.token}`);
+        }
+
+
+    });
+    Bising.createBising( {
+        sound :  561
+    }, (err, data) => {
+        if (err) {
+            console.log(`Error : ${err}`);
+        } else {
+            console.log(`Token : ${data.token}`);
+        }
+
+
+    });
+    Bising.createBising( {
+        sound :  971
     }, (err, data) => {
         if (err) {
             console.log(`Error : ${err}`);
@@ -39,9 +60,108 @@ db.sync({ force: true }).then(() => {
 
     });
 
-    Library.createLibrary({
-        name: "Perpus Pusat ITB",
-        location: "di itb"
+
+    Bising.createBising( {
+        sound :  969
+    }, (err, data) => {
+        if (err) {
+            console.log(`Error : ${err}`);
+        } else {
+            console.log(`Token : ${data.token}`);
+        }
+
+
+    });
+    Bising.createBising( {
+        sound :  969
+    }, (err, data) => {
+        if (err) {
+            console.log(`Error : ${err}`);
+        } else {
+            console.log(`Token : ${data.token}`);
+        }
+
+
+    });
+    Bising.createBising( {
+        sound :  969
+    }, (err, data) => {
+        if (err) {
+            console.log(`Error : ${err}`);
+        } else {
+            console.log(`Token : ${data.token}`);
+        }
+
+
+    });
+    Bising.createBising( {
+        sound :  969
+    }, (err, data) => {
+        if (err) {
+            console.log(`Error : ${err}`);
+        } else {
+            console.log(`Token : ${data.token}`);
+        }
+
+
+    });
+    Bising.createBising( {
+        sound :  970
+    }, (err, data) => {
+        if (err) {
+            console.log(`Error : ${err}`);
+        } else {
+            console.log(`Token : ${data.token}`);
+        }
+
+
+    });
+    Bising.createBising( {
+        sound :  970
+    }, (err, data) => {
+        if (err) {
+            console.log(`Error : ${err}`);
+        } else {
+            console.log(`Token : ${data.token}`);
+        }
+
+
+    });
+    Bising.createBising( {
+        sound :  969
+    }, (err, data) => {
+        if (err) {
+            console.log(`Error : ${err}`);
+        } else {
+            console.log(`Token : ${data.token}`);
+        }
+
+
+    });
+    Bising.createBising( {
+        sound :  970
+    }, (err, data) => {
+        if (err) {
+            console.log(`Error : ${err}`);
+        } else {
+            console.log(`Token : ${data.token}`);
+        }
+
+
+    });
+    Bising.createBising( {
+        sound :  969
+    }, (err, data) => {
+        if (err) {
+            console.log(`Error : ${err}`);
+        } else {
+            console.log(`Token : ${data.token}`);
+        }
+
+
+    });
+    Bising.createBising( {
+        sound :  970
     }, (err, data) => {
         if (err) {
             console.log(`Error : ${err}`);
@@ -53,43 +173,11 @@ db.sync({ force: true }).then(() => {
     });
 
 
-    Book.createBook({
-        name: "Buku Golok",
-        author: "Thareq",
-        libraryId: 1
-    }, (err, data) => {
-        if (err) {
-            console.log(`Error : ${err}`);
-        } else {
-            console.log(`Token : ${data.token}`);
-        }
-    });
-    Book.createBook({
-        name: "Blumbayar",
-        author: "Yasya",
-        libraryId: 1
-    }, (err, data) => {
-        if (err) {
-            console.log(`Error : ${err}`);
-        } else {
-            console.log(`Token : ${data.token}`);
-        }
-    });
-    Borrow.createBorrow({
-        bookId: 1,
-        memberId: 1,
-        name: "Blumbayar",
-        author: "Yasya",
-        nameLibrary: "Perpus Pusat ITB",
-        numDay: 3
-    }, (err, data) => {
-        if (err) {
-            console.log(`Error : ${err}`);
-        } else {
-            console.log(`Token : ${data.token}`);
-        }
 
 
-    });
+
+
+
+
 
 });

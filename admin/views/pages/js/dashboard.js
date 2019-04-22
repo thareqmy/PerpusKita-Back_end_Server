@@ -239,6 +239,60 @@ $(document).ready(() => {
             }
         }
     });
+    $.ajax({
+        url: "/api/admin/bising/list",
+        headers: {
+            "Authorization": getCookie("jwtToken")
+        },
+        dataType: "json",
+        type: "GET",
+        success: (result) => {
+            if (result.success) {
+                $(result.data).each((_, data) => {
+                    let row = $("<tr></tr>");
+                    $("#body-table-bising").append(row);
+
+                    let id = document.createElement("td");
+                    id.innerHTML = data.id;
+                    let sound = document.createElement("td");
+                    sound.innerHTML = data.sound;
+
+                    let removeButton = document.createElement("button");
+                    removeButton.classList.add("btn","btn-primary");
+                    removeButton.val = data.id;
+                    removeButton.innerHTML = "REMOVE";
+                    removeButton.onclick = (e) => {
+                        e.preventDefault();
+
+                        $.ajax({
+                            url: "/api/admin/library/delete",
+                            method: "POST",
+                            data: {
+                                id: data.id
+                            },
+                            headers: {
+                                "Authorization": getCookie("jwtToken")
+                            },
+                            dataType: "json",
+                            success: (result) => {
+                                console.log(result);
+                                if (result.success) {
+                                    var message = `${data.name} is successfully deleted`;
+                                    alert(message);
+                                    location.reload();
+                                } else {
+                                    var message = `Failed to delete ${data.name}`;
+                                    alert(message);
+                                }
+                            }
+                        });
+                    }
+
+                    row.append(id, sound);
+                });
+            }
+        }
+    });
 });
 
 $('a#library-tab').on('click', () => {
@@ -246,6 +300,8 @@ $('a#library-tab').on('click', () => {
     $('a#library-tab').addClass("active");
     $('a#member-tab').removeClass("active");
     $('a#borrow-tab').removeClass("active");
+
+    $('a#bising-tab').removeClass("active");
     $('#book').removeClass("active");
     $('#book').removeClass("fade");
     $('#book').addClass("fade");
@@ -258,6 +314,9 @@ $('a#library-tab').on('click', () => {
     $('#borrow').removeClass("active");
     $('#borrow').removeClass("fade");
     $('#borrow').addClass("fade");
+    $('#bising').removeClass("active");
+    $('#bising').removeClass("fade");
+    $('#bising').addClass("fade");
 });
 
 $('#member-tab').on('click', () => {
@@ -265,6 +324,7 @@ $('#member-tab').on('click', () => {
     $('a#library-tab').removeClass("active");
     $('a#member-tab').addClass("active");
     $('a#borrow-tab').removeClass("active");
+    $('a#bising-tab').removeClass("active");
     $('#book').removeClass("active");
     $('#book').removeClass("fade");
     $('#book').addClass("fade");
@@ -277,6 +337,9 @@ $('#member-tab').on('click', () => {
     $('#borrow').removeClass("active");
     $('#borrow').removeClass("fade");
     $('#borrow').addClass("fade");
+    $('#bising').removeClass("active");
+    $('#bising').removeClass("fade");
+    $('#bising').addClass("fade");
 });
 
 
@@ -285,6 +348,7 @@ $('#book-tab').on('click', () => {
     $('a#library-tab').removeClass("active");
     $('a#member-tab').removeClass("active");
     $('a#borrow-tab').removeClass("active");
+    $('a#bising-tab').removeClass("active");
     $('#book').removeClass("active");
     $('#book').removeClass("fade");
     $('#book').addClass("active");
@@ -297,6 +361,9 @@ $('#book-tab').on('click', () => {
     $('#borrow').removeClass("active");
     $('#borrow').removeClass("fade");
     $('#borrow').addClass("fade");
+    $('#bising').removeClass("active");
+    $('#bising').removeClass("fade");
+    $('#bising').addClass("fade");
 
 });
 
@@ -304,6 +371,7 @@ $('#borrow-tab').on('click', () => {
     $('a#book-tab').removeClass("active");
     $('a#library-tab').removeClass("active");
     $('a#member-tab').removeClass("active");
+    $('a#bising-tab').removeClass("active");
     $('a#borrow-tab').addClass("active");
     $('#book').removeClass("active");
     $('#book').removeClass("fade");
@@ -317,6 +385,33 @@ $('#borrow-tab').on('click', () => {
     $('#borrow').removeClass("active");
     $('#borrow').removeClass("fade");
     $('#borrow').addClass("active");
+    $('#bising').removeClass("active");
+    $('#bising').removeClass("fade");
+    $('#bising').addClass("fade");
+
+});
+
+$('#bising-tab').on('click', () => {
+    $('a#book-tab').removeClass("active");
+    $('a#library-tab').removeClass("active");
+    $('a#member-tab').removeClass("active");
+    $('a#borrow-tab').removeClass("active");
+    $('a#bising-tab').addClass("active");
+    $('#book').removeClass("active");
+    $('#book').removeClass("fade");
+    $('#book').addClass("fade");
+    $('#library').removeClass("active");
+    $('#library').removeClass("fade");
+    $('#library').addClass("fade");
+    $('#member').removeClass("active");
+    $('#member').removeClass("fade");
+    $('#member').addClass("fade");
+    $('#borrow').removeClass("active");
+    $('#borrow').removeClass("fade");
+    $('#borrow').addClass("fade");
+    $('#bising').removeClass("active");
+    $('#bising').removeClass("fade");
+    $('#bising').addClass("active");
 
 });
 
